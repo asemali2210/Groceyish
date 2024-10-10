@@ -1,16 +1,17 @@
-import Image from 'next/image'
-import heroimg from '@/public/assests/Hreo-img.png';
 import { TbSend } from "react-icons/tb";
-export default function HomeHeader() {
+import StrapiImage from '../custom/StrapiImage';
+
+
+export default async function HomeHeader({data}) {
   return (
     <div className='home__header'>
-        <div className='container'>
+        <div className='container-fluid '>
             <div className='row align-items-md-center'>
                 <div className='col-5'>
                     <div className='home__header__left'>
                         <div className='home__header__content'>
-                            <p>Don’t miss our daily  <br /> amazing deals.</p>
-                            <p className='my-4'>Save up to 60% off on your first order</p>
+                            <p>{data.heading} </p>
+                            <p className='my-4'>{data.subHeading}</p>
                             <div className='newsletter'>
                                 <TbSend />
                                 <input type='email' className='header__input' placeholder='Enter your email address'/>
@@ -19,11 +20,9 @@ export default function HomeHeader() {
                         </div>
                     </div>
                 </div>
-                <div className='col-md-7'>
-                    <p>asdas</p>
-                    <div className='home__header__img'>
-                    <Image src={heroimg} className='img-fluid' alt="appWid" quality={100}/>
-
+                <div className='col-md-7 p-0'>
+                    <div className='home__header__img d-flex'>
+                        <StrapiImage src={data.image.url} width="400" height="400" className='img-fluid w-100'  alt={data.image.alternativeText} quality={100}/>
                     </div>
                 </div>
             </div>

@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_layout_featrues_sections",
+  "info": {
+    "displayName": "Featrues Sections",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "descriptions": {
+      "type": "text"
+    },
+    "feature": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.featrue"
+    }
+  }
+}
