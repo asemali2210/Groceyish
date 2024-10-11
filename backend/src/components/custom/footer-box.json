@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_custom_footer_boxes",
+  "info": {
+    "displayName": "footerBox",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "boxHeading": {
+      "type": "string"
+    },
+    "boxItem": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link"
+    }
+  }
+}

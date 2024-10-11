@@ -52,4 +52,12 @@ export async function getHomePageData() {
     return await fetchData(url.href)
 }
 
+export async function getGlobalData(){
+    const url = new URL("/api/global", baseUrl )
+    url.search = qs.stringify({
+        populate: ['header.logoText','footer','footer.logoText', 'footer.footerColumn','footer.footerColumn.boxItem', 'footer.footerLinkWithIcon','footer.developer']
+    })
+    return await fetchData(url.href)
+}
+
 

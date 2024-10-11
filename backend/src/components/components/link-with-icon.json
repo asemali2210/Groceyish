@@ -1,7 +1,7 @@
 {
-  "collectionName": "components_components_links",
+  "collectionName": "components_components_link_with_icons",
   "info": {
-    "displayName": "Link",
+    "displayName": "linkWithIcon",
     "description": ""
   },
   "options": {},
@@ -15,6 +15,9 @@
     "isExternal": {
       "type": "boolean",
       "default": false
+    },
+    "icon": {
+      "type": "string"
     }
   }
 }

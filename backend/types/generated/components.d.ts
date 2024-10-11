@@ -13,6 +13,23 @@ export interface LayoutHeroSection extends Struct.ComponentSchema {
   };
 }
 
+export interface LayoutFooter extends Struct.ComponentSchema {
+  collectionName: 'components_layout_footers';
+  info: {
+    displayName: 'Footer';
+    description: '';
+  };
+  attributes: {
+    logoText: Schema.Attribute.Component<'components.link', false>;
+    footerLinkWithIcon: Schema.Attribute.Component<
+      'components.link-with-icon',
+      true
+    >;
+    footerColumn: Schema.Attribute.Component<'custom.footer-box', true>;
+    developer: Schema.Attribute.Component<'components.link', false>;
+  };
+}
+
 export interface LayoutFeatruesSections extends Struct.ComponentSchema {
   collectionName: 'components_layout_featrues_sections';
   info: {
@@ -26,15 +43,54 @@ export interface LayoutFeatruesSections extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomFooterBox extends Struct.ComponentSchema {
+  collectionName: 'components_custom_footer_boxes';
+  info: {
+    displayName: 'footerBox';
+    description: '';
+  };
+  attributes: {
+    boxHeading: Schema.Attribute.String;
+    boxItem: Schema.Attribute.Component<'components.link', true>;
+  };
+}
+
 export interface ComponentsLink extends Struct.ComponentSchema {
   collectionName: 'components_components_links';
   info: {
     displayName: 'Link';
+    description: '';
   };
   attributes: {
-    url: Schema.Attribute.String;
     text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
     isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+  };
+}
+
+export interface ComponentsLinkWithIcon extends Struct.ComponentSchema {
+  collectionName: 'components_components_link_with_icons';
+  info: {
+    displayName: 'linkWithIcon';
+    description: '';
+  };
+  attributes: {
+    text: Schema.Attribute.String;
+    url: Schema.Attribute.String;
+    isExternal: Schema.Attribute.Boolean & Schema.Attribute.DefaultTo<false>;
+    icon: Schema.Attribute.String;
+  };
+}
+
+export interface ComponentsHeader extends Struct.ComponentSchema {
+  collectionName: 'components_components_headers';
+  info: {
+    displayName: 'Header';
+    description: '';
+  };
+  attributes: {
+    logoText: Schema.Attribute.Component<'components.link', false>;
+    ctaBtn: Schema.Attribute.Component<'components.link', false>;
   };
 }
 
@@ -57,8 +113,12 @@ declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
       'layout.hero-section': LayoutHeroSection;
+      'layout.footer': LayoutFooter;
       'layout.featrues-sections': LayoutFeatruesSections;
+      'custom.footer-box': CustomFooterBox;
       'components.link': ComponentsLink;
+      'components.link-with-icon': ComponentsLinkWithIcon;
+      'components.header': ComponentsHeader;
       'components.featrue': ComponentsFeatrue;
     }
   }

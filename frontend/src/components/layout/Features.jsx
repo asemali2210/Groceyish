@@ -24,7 +24,7 @@ export default  function Features({data}) {
             <div className='row'>
                 {
                     data.feature.map(feature=> (
-                        <div className='col-md-4'>
+                        <div className='col-md-4' key={feature.id}>
                             <div className='feature__card d-flex  column-gap-4'>
                                 <div className='__icon __left fw-bold h1'>
                                     {getIcon(feature.icons)}
