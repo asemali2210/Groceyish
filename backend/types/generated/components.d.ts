@@ -55,6 +55,21 @@ export interface CustomFooterBox extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomCategries extends Struct.ComponentSchema {
+  collectionName: 'components_custom_categries';
+  info: {
+    displayName: 'categries';
+    description: '';
+  };
+  attributes: {
+    haeading: Schema.Attribute.String;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+  };
+}
+
 export interface ComponentsLink extends Struct.ComponentSchema {
   collectionName: 'components_components_links';
   info: {
@@ -103,9 +118,7 @@ export interface ComponentsFeatrue extends Struct.ComponentSchema {
   attributes: {
     heading: Schema.Attribute.String;
     subHeading: Schema.Attribute.Text;
-    icons: Schema.Attribute.Enumeration<
-      ['CiBadgeDollar', 'FaTruckArrowRight', 'IoReloadOutline']
-    >;
+    icon: Schema.Attribute.Media<'images'>;
   };
 }
 
@@ -116,6 +129,7 @@ declare module '@strapi/strapi' {
       'layout.footer': LayoutFooter;
       'layout.featrues-sections': LayoutFeatruesSections;
       'custom.footer-box': CustomFooterBox;
+      'custom.categries': CustomCategries;
       'components.link': ComponentsLink;
       'components.link-with-icon': ComponentsLinkWithIcon;
       'components.header': ComponentsHeader;

@@ -1,5 +1,8 @@
 import {getBaseUrl } from "@/util/util";
+import { unstable_noStore } from "next/cache";
 import qs from "qs";
+
+
 async function fetchData(url){
     const authToken = null;
     const headers = {
@@ -24,6 +27,7 @@ async function fetchData(url){
 const baseUrl= getBaseUrl();
 
 export async function getHomePageData() {
+    unstable_noStore();
     const url = new URL("/api/home-page", baseUrl);
     url.search = qs.stringify({
         populate: {
@@ -41,9 +45,30 @@ export async function getHomePageData() {
                    'layout.featrues-sections': {
                         populate: {
                             feature: {
-                                populate: true
+                                populate: {
+                                    icon: {
+                                        fields: ["url"]
+                                    }
+                                }
                             }
                         },
+                   },
+                   'custom.categries': {
+                        populate: {
+                            categories: {
+                                populate: {
+                                    products: {
+                                        populate:{
+                                            images: {
+                                                populate: {
+                                                    fields: ["url"]
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                        }
                    },
                 }
             }
@@ -59,5 +84,13 @@ export async function getGlobalData(){
     })
     return await fetchData(url.href)
 }
+
+export async function getCategorySlug(){
+    const url = new URL("/api/categories", baseUrl );
+    url.search = qs.stringify({
+        populate: true
+    })
+    return await fetchData(url.href)
+} 
 
 

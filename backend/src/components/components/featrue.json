@@ -12,13 +12,12 @@
     "subHeading": {
       "type": "text"
     },
-    "icons": {
-      "type": "enumeration",
-      "enum": [
-        "CiBadgeDollar",
-        "FaTruckArrowRight",
-        "IoReloadOutline"
-      ]
+    "icon": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }

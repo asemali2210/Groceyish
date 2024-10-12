@@ -3,7 +3,6 @@ import Image from 'next/image'
 import '@/styles/components/navbar.scss';
 import logo from '@/public/assests/logo.svg';
 import user from '@/public/assests/user.png';
-import { CiCircleChevDown } from "react-icons/ci";
 import { IoHeartOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
 import { BsChevronDown } from "react-icons/bs";
@@ -15,13 +14,12 @@ import { usePathname } from 'next/navigation';
 import { MdOutlineWhatshot } from "react-icons/md";
 import { AiOutlinePercentage } from "react-icons/ai";
 import { TbSpeakerphone } from "react-icons/tb";
-import { CiPhone } from "react-icons/ci";
 import { BsPercent } from "react-icons/bs";
+import { CiCircleChevDown } from 'react-icons/ci';
 
-export default function Navbar() {
-    
-    const currDir = usePathname();
-
+export default function Navbar({categories}) {
+    const currDir = usePathname(); 
+   
     return (
         <nav className='navbar__main'>
             <div className='container'>
@@ -38,13 +36,17 @@ export default function Navbar() {
                                     <div className='navbar__dropdown__categories'>
                                         <div className=''>
                                             <button className='btn p-0 dropdown__btn'>All Categories <CiCircleChevDown /> </button>
-                                            <div className='dropdown__items'>
-                                                <ul className='list-unstyled m-0 dropdown__items__list'>
-                                                    {/* map category form backedn */}
-                                                    <li className='dropdown__item'>Peach</li>
-                                                    <li className='dropdown__item'>Vegetables</li>
-                                                </ul>
-                                            </div> 
+
+                                                <div className="dropdown">
+                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                        {
+                                                            categories.map(category => (
+                                                                <Link className="dropdown-item" key={category.name} href="/">{category.name}</Link>
+
+                                                            ))
+                                                        }
+                                                    </div>
+                                                </div>
                                         </div>
                                     </div>
                                     <div className='navbar__search'>
@@ -83,8 +85,20 @@ export default function Navbar() {
                             <div className='row'>
                                 <div className='col-md-3'>
                                     <div className='__categories d-flex column-gap-2 align-items-center'>
-                                        <TbCategory />
-                                        Brows All Categories
+                                        <div className="dropdown__btn">
+                                                <TbCategory />
+                                                Brows All Categories
+                                        </div>
+                                        <div className="dropdown__items___container" aria-labelledby="dropdownMenuButton2">
+                                                <ul className='dropdown__items list-unstyled'>
+                                                    {
+                                                        categories.map(category => (
+                                                            <li className='dropdown__item' key={category.id}>{category.name}</li>
+
+                                                        ))
+                                                    }
+                                                </ul>
+                                        </div>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>

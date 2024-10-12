@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_custom_categries",
+  "info": {
+    "displayName": "categries",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "haeading": {
+      "type": "string"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    }
+  }
+}
