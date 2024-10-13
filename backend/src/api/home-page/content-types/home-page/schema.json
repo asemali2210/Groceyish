@@ -23,7 +23,8 @@
       "components": [
         "layout.hero-section",
         "layout.featrues-sections",
-        "custom.categries"
+        "custom.categries",
+        "components.products"
       ]
     }
   }

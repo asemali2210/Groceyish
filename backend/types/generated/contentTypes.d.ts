@@ -557,7 +557,12 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
     title: Schema.Attribute.String;
     descrition: Schema.Attribute.Text;
     blocks: Schema.Attribute.DynamicZone<
-      ['layout.hero-section', 'layout.featrues-sections', 'custom.categries']
+      [
+        'layout.hero-section',
+        'layout.featrues-sections',
+        'custom.categries',
+        'components.products',
+      ]
     >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
@@ -605,6 +610,8 @@ export interface ApiProductProduct extends Struct.CollectionTypeSchema {
     isMultiMedia: Schema.Attribute.Boolean &
       Schema.Attribute.Required &
       Schema.Attribute.DefaultTo<false>;
+    description: Schema.Attribute.Text & Schema.Attribute.Required;
+    quantity: Schema.Attribute.String & Schema.Attribute.Required;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

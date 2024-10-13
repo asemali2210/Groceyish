@@ -70,6 +70,17 @@ export async function getHomePageData() {
                             },
                         }
                    },
+                   'components.products': {
+                    populate: {
+                        products: {
+                            populate: {
+                                images: {
+                                    populate: true
+                                }
+                            }
+                        }
+                    }
+                   },
                 }
             }
         },

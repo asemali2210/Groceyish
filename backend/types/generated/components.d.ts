@@ -70,6 +70,22 @@ export interface CustomCategries extends Struct.ComponentSchema {
   };
 }
 
+export interface ComponentsProducts extends Struct.ComponentSchema {
+  collectionName: 'components_components_products';
+  info: {
+    displayName: 'products';
+    description: '';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
+  };
+}
+
 export interface ComponentsLink extends Struct.ComponentSchema {
   collectionName: 'components_components_links';
   info: {
@@ -130,6 +146,7 @@ declare module '@strapi/strapi' {
       'layout.featrues-sections': LayoutFeatruesSections;
       'custom.footer-box': CustomFooterBox;
       'custom.categries': CustomCategries;
+      'components.products': ComponentsProducts;
       'components.link': ComponentsLink;
       'components.link-with-icon': ComponentsLinkWithIcon;
       'components.header': ComponentsHeader;

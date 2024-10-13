@@ -45,6 +45,14 @@
       "type": "boolean",
       "default": false,
       "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "quantity": {
+      "type": "string",
+      "required": true
     }
   }
 }
