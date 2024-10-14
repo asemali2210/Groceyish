@@ -76,7 +76,8 @@ export async function getHomePageData() {
                             populate: {
                                 images: {
                                     populate: true
-                                }
+                                },
+                                categories: true
                             }
                         }
                     }
@@ -91,7 +92,17 @@ export async function getHomePageData() {
 export async function getGlobalData(){
     const url = new URL("/api/global", baseUrl )
     url.search = qs.stringify({
-        populate: ['header.logoText','footer','footer.logoText', 'footer.footerColumn','footer.footerColumn.boxItem', 'footer.footerLinkWithIcon','footer.developer']
+        populate: 
+        [
+            'footer.logoText',
+            'footer.footerColumn',
+            'footer.footerColumn.boxItem',
+            'footer.footerLinkWithIcon',
+            'footer.developer',
+            'navbar.navbarLink',
+            'navbar.categories', 
+            'navbar.navbarBottomLink'
+        ]
     })
     return await fetchData(url.href)
 }

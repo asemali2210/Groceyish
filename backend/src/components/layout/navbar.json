@@ -1,0 +1,28 @@
+{
+  "collectionName": "components_layout_navbars",
+  "info": {
+    "displayName": "navbar",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "logoText": {
+      "type": "string"
+    },
+    "navbarLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link-with-icon"
+    },
+    "navbarBottomLink": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.link-with-icon"
+    },
+    "categories": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::category.category"
+    }
+  }
+}

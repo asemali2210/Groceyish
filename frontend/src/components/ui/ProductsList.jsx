@@ -9,7 +9,7 @@ export default async function ProductsList({data}) {
 
             {
                 data.products.map(product => (
-                    <div className="col-md-3">
+                    <div className="col-md-3 col-6">
                         <ProductCard product={product} key={product.id} />
                     </div>
                 ))

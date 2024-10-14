@@ -1,5 +1,25 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
+export interface LayoutNavbar extends Struct.ComponentSchema {
+  collectionName: 'components_layout_navbars';
+  info: {
+    displayName: 'navbar';
+    description: '';
+  };
+  attributes: {
+    logoText: Schema.Attribute.String;
+    navbarLink: Schema.Attribute.Component<'components.link-with-icon', true>;
+    navbarBottomLink: Schema.Attribute.Component<
+      'components.link-with-icon',
+      true
+    >;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+  };
+}
+
 export interface LayoutHeroSection extends Struct.ComponentSchema {
   collectionName: 'components_layout_hero_sections';
   info: {
@@ -141,6 +161,7 @@ export interface ComponentsFeatrue extends Struct.ComponentSchema {
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
+      'layout.navbar': LayoutNavbar;
       'layout.hero-section': LayoutHeroSection;
       'layout.footer': LayoutFooter;
       'layout.featrues-sections': LayoutFeatruesSections;

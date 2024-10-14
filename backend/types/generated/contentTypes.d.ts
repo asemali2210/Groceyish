@@ -491,6 +491,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     singularName: 'category';
     pluralName: 'categories';
     displayName: 'category';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -499,6 +500,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     name: Schema.Attribute.String & Schema.Attribute.Required;
     slug: Schema.Attribute.UID<'name'>;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
+    image: Schema.Attribute.Media<'images'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -528,8 +530,8 @@ export interface ApiGlobalGlobal extends Struct.SingleTypeSchema {
   attributes: {
     title: Schema.Attribute.String;
     description: Schema.Attribute.Text;
-    header: Schema.Attribute.Component<'components.header', false>;
     footer: Schema.Attribute.Component<'layout.footer', false>;
+    navbar: Schema.Attribute.Component<'layout.navbar', false>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
@@ -562,6 +564,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'layout.featrues-sections',
         'custom.categries',
         'components.products',
+        'layout.navbar',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;

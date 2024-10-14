@@ -1,12 +1,9 @@
 'use client';
 import Image from 'next/image'
-import '@/styles/components/navbar.scss';
-import logo from '@/public/assests/logo.svg';
 import user from '@/public/assests/user.png';
 import { IoHeartOutline } from "react-icons/io5";
 import { TiShoppingCart } from "react-icons/ti";
 import { BsChevronDown } from "react-icons/bs";
-import { HiOutlineSearch } from "react-icons/hi";
 import { TbCategory } from "react-icons/tb";
 import Link from 'next/link';
 import { LuHome } from "react-icons/lu";
@@ -16,10 +13,11 @@ import { AiOutlinePercentage } from "react-icons/ai";
 import { TbSpeakerphone } from "react-icons/tb";
 import { BsPercent } from "react-icons/bs";
 import { CiCircleChevDown } from 'react-icons/ci';
+import LogoImage from '../ui/LogoImage';
+import SearchField from '../custom/SearchField';
 
-export default function Navbar({categories}) {
+export default function Navbar({data}) {
     const currDir = usePathname(); 
-   
     return (
         <nav className='navbar__main'>
             <div className='container'>
@@ -29,32 +27,11 @@ export default function Navbar({categories}) {
                             <div className='row'>
                                 <div className='col-md-2 col-2'>
                                     <div className='img__logo'>
-                                        <Image src={logo} alt='Groceyish' className='img-fluid' />
+                                      <LogoImage />
                                     </div>
                                 </div>
                                 <div className='col-md-5 d-flex'>
-                                    <div className='navbar__dropdown__categories'>
-                                        <div className=''>
-                                            <button className='btn p-0 dropdown__btn'>All Categories <CiCircleChevDown /> </button>
-
-                                                <div className="dropdown">
-                                                    <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                                        {
-                                                            categories.map(category => (
-                                                                <Link className="dropdown-item" key={category.name} href="/">{category.name}</Link>
-
-                                                            ))
-                                                        }
-                                                    </div>
-                                                </div>
-                                        </div>
-                                    </div>
-                                    <div className='navbar__search'>
-                                        <input type='search' />
-                                    </div>
-                                    <div className='navbar__search'>
-                                        <HiOutlineSearch />
-                                    </div>
+                                    <SearchField categories={data.categories}/>
                                 </div>
                                 <div className='col-md-3'>
                                     <div className='navbar__tools d-flex align-items-center column-gap-4'>
@@ -92,7 +69,7 @@ export default function Navbar({categories}) {
                                         <div className="dropdown__items___container" aria-labelledby="dropdownMenuButton2">
                                                 <ul className='dropdown__items list-unstyled'>
                                                     {
-                                                        categories.map(category => (
+                                                        data.categories.map(category => (
                                                             <li className='dropdown__item' key={category.id}>{category.name}</li>
 
                                                         ))
@@ -118,12 +95,6 @@ export default function Navbar({categories}) {
                                         <li className={`navbar__item ${currDir == '/' ? `--active` : `navbar__item` }`}>
                                             <Link href='/' className='d-flex column-gap-2 align-items-center'>
                                                 <AiOutlinePercentage />
-                                                Promotions
-                                            </Link>
-                                        </li>
-                                        <li className={`navbar__item ${currDir == '/' ? `--active` : `navbar__item` }`}>
-                                            <Link href='/' className='d-flex column-gap-2 align-items-center'>
-                                                <BsPercent />
                                                 Promotions
                                             </Link>
                                         </li>

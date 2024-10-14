@@ -18,16 +18,15 @@
     "description": {
       "type": "text"
     },
-    "header": {
-      "displayName": "Header",
-      "type": "component",
-      "repeatable": false,
-      "component": "components.header"
-    },
     "footer": {
       "type": "component",
       "repeatable": false,
       "component": "layout.footer"
+    },
+    "navbar": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.navbar"
     }
   }
 }

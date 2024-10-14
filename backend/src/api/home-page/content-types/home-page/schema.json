@@ -24,7 +24,8 @@
         "layout.hero-section",
         "layout.featrues-sections",
         "custom.categries",
-        "components.products"
+        "components.products",
+        "layout.navbar"
       ]
     }
   }

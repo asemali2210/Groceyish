@@ -13,12 +13,11 @@ export const metadata = {
 
 export default async function RootLayout({ children }) {
   const globalData = await getGlobalData();
-  const categorySlug = await getCategorySlug();
-
+  console.log(globalData)
   return (
     <html lang="en">
       <body >
-        <Navbar categories={categorySlug.data}/>
+        <Navbar data={globalData.data.navbar}/>
         {children}
         <Footer data={globalData.data.footer}/>
       </body>
