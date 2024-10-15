@@ -6,7 +6,7 @@ export default function SearchField({categories =[]}) {
     const c = categories.map(category => category.name)
     console.log(c,"sadddddddddddd")
   return (
-    <div className='search__filed d-flex align-items-center bg_grey-1'>
+    <div className='search__filed d-flex align-items-center bg_grey-2'>
         <div className='search__tags'>
             <CustomSelect options={c} /> 
         </div>

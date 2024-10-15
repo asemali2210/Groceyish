@@ -1,11 +1,10 @@
 
 import '@/styles/components/custom-select.scss';
 import { useState} from 'react'
-import React, { useState } from 'react';
 import Select from 'react-select';
 
 
-export default function CustomSelect({children,options}) {
+export default function CustomSelect({options}) {
   const [selectedOption, setSelectedOption] = useState(null);
 
   const handleChange = (selectedOption) => {
@@ -36,13 +35,11 @@ export default function CustomSelect({children,options}) {
 
 
   return (
-    <select 
+    <Select 
       value={selectedOption} 
       onChange={handleChange} 
       options={options}
       styles={customStyles}
-      >
-      {children}
-    </select>
+      />
   )
 };

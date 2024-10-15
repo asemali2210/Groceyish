@@ -19,12 +19,12 @@ import SearchField from '../custom/SearchField';
 export default function Navbar({data}) {
     const currDir = usePathname(); 
     return (
-        <nav className='navbar__main'>
+        <nav className='navbar__main py-3 px-2'>
             <div className='container'>
                 <div className='row'>
                     <div className='col-12'>
                         <div className='navbar__top'>
-                            <div className='row'>
+                            <div className='row align-items-center'>
                                 <div className='col-md-2 col-2'>
                                     <div className='img__logo'>
                                       <LogoImage />
