@@ -1,5 +1,74 @@
 .navbar__main{
+    
     .navbar__top{
-        
+        .navbar__tools{
+           .navbar__tool{
+            position: relative;
+            font-size: 1rem;
+            font-weight: 500;
+            flex-wrap: nowrap;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            .icon__box{
+                position: relative;
+                ._icon{
+                    font-size: 2.2rem;
+                    margin-left: 6px;
+                }
+                ._num{
+                    color: $white;
+                    width: 16px;
+                    height: 16px;
+                    border-radius: 50%;
+                    font-size: 10px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    position: absolute;
+                    top: 0;
+                    right: 2px;
+                    font-weight: bold;
+                    background-color: $primary;
+                }
+            }
+                
+           }
+        }
+    }
+    .navbar__bottom{
+        .__categories{
+            position: relative;
+            .dropdown__btn{
+                cursor: pointer;
+            }
+            .dropdown__items___container{
+                position: absolute;
+                top: 100%;
+                background-color: $white;
+                border: 1px solid $grey-1;
+                padding: 15px;
+                width: 80vw;
+                border-radius: 10px;
+                .dropdown__items{
+                    display: flex;
+                    flex-wrap: wrap;
+                    gap: 10px;
+                    .dropdown__item{
+                        align-items: center;
+                        gap: 15px;
+                        white-space: nowrap;
+                        border: 1px solid $primary;
+                        cursor: pointer;
+                        display: flex;
+                        min-width: 150px;
+                        padding: 5px 15px;
+                        img{
+                            object-fit: cover !important;
+                        }
+                    }
+                }
+            }
+        }
     }
 }

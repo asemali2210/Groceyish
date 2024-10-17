@@ -15,9 +15,13 @@ import { BsPercent } from "react-icons/bs";
 import { CiCircleChevDown } from 'react-icons/ci';
 import LogoImage from '../ui/LogoImage';
 import SearchField from '../custom/SearchField';
+import StrapiImage from '../custom/StrapiImage';
 
-export default function Navbar({data}) {
+export default  function Navbar({data}) {
     const currDir = usePathname(); 
+
+    let totalAmount;
+    console.log(data.categories[0], 'asdasdasasss')
     return (
         <nav className='navbar__main py-3 px-2'>
             <div className='container'>
@@ -36,21 +40,30 @@ export default function Navbar({data}) {
                                 <div className='col-md-3'>
                                     <div className='navbar__tools d-flex align-items-center column-gap-4'>
                                         <div className='navbar__tool __wishlist'>
-                                            <IoHeartOutline />
-                                            <span className='ms-1'>Wishlist</span>
-                                            <span className='_num'>5</span>
+                                            <div className='icon__box'>
+                                                <IoHeartOutline  className='_icon'/>
+                                                <span className='_num'>5</span>
+                                            </div>
+                                            <div>
+                                                <span className='ms-1'>Wishlist</span>
+                                            </div>
                                         </div>
                                         <div className='navbar__tool __cart'>
-                                            <TiShoppingCart />
-                                            <span className='ms-1'>My cart</span>
-                                            <span className='_num'>5</span>
+                                            <div className='icon__box'>
+                                                <TiShoppingCart  className='_icon'/>
+                                                <span className='_num'>5</span>
+                                            </div>
+                                            <div className='ms-2'>
+                                                <span className='d-block'>My cart</span>
+                                                <span className='__cat__total c_primary fw-bold d-block'>{totalAmount || '5$'}</span>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                                 <div className='col-md-2'>
                                     <div className='navbar__user d-flex align-items-center column-gap-2'>
                                         <Image src={user} alt='Groceyish' className='img-fluid' />
-                                        <span className='ms-1'>Asem Ali</span>
+                                        <span className='ms-1 navbar__username fw-bold'>Asem Ali</span>
                                         <BsChevronDown /> 
                                     </div>
                                 </div>
@@ -58,11 +71,11 @@ export default function Navbar({data}) {
                         </div>
                     </div>
                     <div className='col-12'>
-                        <div className='navbar__bottom'>
+                        <div className='navbar__bottom '>
                             <div className='row'>
                                 <div className='col-md-3'>
                                     <div className='__categories d-flex column-gap-2 align-items-center'>
-                                        <div className="dropdown__btn">
+                                        <div className="dropdown__btn bg_primary c_wh fw-bold p-2">
                                                 <TbCategory />
                                                 Brows All Categories
                                         </div>
@@ -70,7 +83,20 @@ export default function Navbar({data}) {
                                                 <ul className='dropdown__items list-unstyled'>
                                                     {
                                                         data.categories.map(category => (
-                                                            <li className='dropdown__item' key={category.id}>{category.name}</li>
+                                                            <li 
+                                                            className='dropdown__item fw-medium rounded ' 
+                                                            key={category.id}>
+                                                                <div>
+                                                                    <StrapiImage 
+                                                                        src={category.image.url}
+                                                                        width={50}
+                                                                        height={50}
+                                                                        alt={category.name}
+                                                                        className="img-fluid"
+                                                                    />
+                                                                </div>
+                                                                {category.name}
+                                                            </li>
 
                                                         ))
                                                     }

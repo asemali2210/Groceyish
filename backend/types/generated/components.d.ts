@@ -1,32 +1,5 @@
 import type { Struct, Schema } from '@strapi/strapi';
 
-export interface CustomFooterBox extends Struct.ComponentSchema {
-  collectionName: 'components_custom_footer_boxes';
-  info: {
-    displayName: 'footerBox';
-    description: '';
-  };
-  attributes: {
-    boxHeading: Schema.Attribute.String;
-    boxItem: Schema.Attribute.Component<'components.link', true>;
-  };
-}
-
-export interface CustomCategries extends Struct.ComponentSchema {
-  collectionName: 'components_custom_categries';
-  info: {
-    displayName: 'categries';
-    description: '';
-  };
-  attributes: {
-    haeading: Schema.Attribute.String;
-    categories: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    >;
-  };
-}
-
 export interface LayoutNavbar extends Struct.ComponentSchema {
   collectionName: 'components_layout_navbars';
   info: {
@@ -158,11 +131,36 @@ export interface ComponentsFeatrue extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomFooterBox extends Struct.ComponentSchema {
+  collectionName: 'components_custom_footer_boxes';
+  info: {
+    displayName: 'footerBox';
+    description: '';
+  };
+  attributes: {
+    boxHeading: Schema.Attribute.String;
+    boxItem: Schema.Attribute.Component<'components.link', true>;
+  };
+}
+
+export interface CustomCategries extends Struct.ComponentSchema {
+  collectionName: 'components_custom_categries';
+  info: {
+    displayName: 'categries';
+    description: '';
+  };
+  attributes: {
+    haeading: Schema.Attribute.String;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
-      'custom.footer-box': CustomFooterBox;
-      'custom.categries': CustomCategries;
       'layout.navbar': LayoutNavbar;
       'layout.hero-section': LayoutHeroSection;
       'layout.footer': LayoutFooter;
@@ -172,6 +170,8 @@ declare module '@strapi/strapi' {
       'components.link-with-icon': ComponentsLinkWithIcon;
       'components.header': ComponentsHeader;
       'components.featrue': ComponentsFeatrue;
+      'custom.footer-box': CustomFooterBox;
+      'custom.categries': CustomCategries;
     }
   }
 }

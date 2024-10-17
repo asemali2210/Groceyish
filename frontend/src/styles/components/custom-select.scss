@@ -1,22 +1,22 @@
 @import '../core/colors';
 
 select.custom__select{
-    padding: 10px;
-    border: none;
-    background-color: $grey-1;
-    color: $black;
-    cursor: pointer;
-    border-radius: none;
-    outline: none;
-    &:focus {
-        outline: none;
-      }
-      option {
-        outline: none;
-        border-radius: none;
-        border: none;
-        background-color: $white;
-        cursor: pointer;
-        padding: 15px;
-    }
+  flex: 1;
+  border: none;
+  box-shadow: none !important;
+  background-color: $grey-2;
+  background-image: none;
+  cursor: pointer;
+  option{
+    cursor: pointer !important;
+    top: 0;
+    padding: 5px;
+    border: 1px solid $grey-2;
+    padding: 15px;
+    text-wrap: nowrap;
+    text-overflow: ellipsis;
+  }
+  &:focus{
+    outline: 0;
+  }
 }

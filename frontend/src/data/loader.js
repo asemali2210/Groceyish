@@ -91,6 +91,7 @@ export async function getHomePageData() {
 
 export async function getGlobalData(){
     const url = new URL("/api/global", baseUrl )
+    
     url.search = qs.stringify({
         populate: 
         [
@@ -101,8 +102,9 @@ export async function getGlobalData(){
             'footer.developer',
             'navbar.navbarLink',
             'navbar.categories', 
-            'navbar.navbarBottomLink'
-        ]
+            'navbar.categories.image', 
+            'navbar.navbarBottomLink',
+        ],
     })
     return await fetchData(url.href)
 }
