@@ -30,8 +30,9 @@ export default  function Navbar({data}) {
                         <div className='navbar__top'>
                             <div className='row align-items-center'>
                                 <div className='col-md-2 col-2'>
-                                    <div className='img__logo'>
                                       <LogoImage />
+                                      <LogoImage />
+                                    <div className='img__logo'>
                                     </div>
                                 </div>
                                 <div className='col-md-5 d-flex'>
