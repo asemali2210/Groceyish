@@ -1,7 +1,20 @@
 @import '../core/colors';
 .search__filed{
+    
     .search__tags{
         border-right: 1px solid $grey-1;
+        .select__items{
+            border: none;
+            background: none;
+            padding-left: 5px;
+            color: $black;
+            font-weight: 700;
+            option: {
+            }
+            &:focus{
+                outline: 0;
+            }
+        }
     }
     .search__filed__input__box{
     }
@@ -9,6 +22,9 @@
         input{
             border: none;
             background: none;
+            &:focus{
+                outline: 0;
+            }
         }
     }
     .search__icon{

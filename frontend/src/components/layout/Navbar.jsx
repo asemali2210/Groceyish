@@ -16,12 +16,30 @@ import { CiCircleChevDown } from 'react-icons/ci';
 import LogoImage from '../ui/LogoImage';
 import SearchField from '../custom/SearchField';
 import StrapiImage from '../custom/StrapiImage';
-
+import { motion } from "framer-motion"
+import { useState } from 'react';
 export default  function Navbar({data}) {
     const currDir = usePathname(); 
-
     let totalAmount;
-    console.log(data.categories[0], 'asdasdasasss')
+    const [isOpen, setIsOpen] = useState(false);
+    const toggelCat = () => {
+        setIsOpen(!isOpen)
+    }
+    const styleWhenOpen = {
+        y: 0,
+        opacity: 1,
+        zIndex: 1,
+        display: 'flex',
+
+
+    }
+    const styleWhenClose = {
+        y: -100,
+        opacity: 0,
+        zIndex: -1,
+        display: 'none'
+    }
+    
     return (
         <nav className='navbar__main py-3 px-2'>
             <div className='container'>
@@ -30,7 +48,6 @@ export default  function Navbar({data}) {
                         <div className='navbar__top'>
                             <div className='row align-items-center'>
                                 <div className='col-md-2 col-2'>
-                                      <LogoImage />
                                       <LogoImage />
                                     <div className='img__logo'>
                                     </div>
@@ -72,15 +89,20 @@ export default  function Navbar({data}) {
                         </div>
                     </div>
                     <div className='col-12'>
-                        <div className='navbar__bottom '>
-                            <div className='row'>
+                        <div className='navbar__bottom py-3'>
+                            <div className='row align-items-center'>
                                 <div className='col-md-3'>
                                     <div className='__categories d-flex column-gap-2 align-items-center'>
-                                        <div className="dropdown__btn bg_primary c_wh fw-bold p-2">
+                                        <div className="dropdown__btn bg_primary c_wh fw-bold p-2" onClick={toggelCat}>
                                                 <TbCategory />
                                                 Brows All Categories
                                         </div>
-                                        <div className="dropdown__items___container" aria-labelledby="dropdownMenuButton2">
+                                        <motion.div 
+                                        initial={styleWhenClose}
+                                        animate={isOpen? styleWhenOpen : styleWhenClose}
+                                        className="dropdown__items___container"
+                                        transition={{ ease: "easeOut", duration: .4 }}
+                                        >
                                                 <ul className='dropdown__items list-unstyled'>
                                                     {
                                                         data.categories.map(category => (
@@ -102,7 +124,7 @@ export default  function Navbar({data}) {
                                                         ))
                                                     }
                                                 </ul>
-                                        </div>
+                                        </motion.div>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>
@@ -129,12 +151,12 @@ export default  function Navbar({data}) {
                                     </ul>
                                 </div>
                                 <div className='col-md-3'>
-                                    <div className='d-flex column-gap-2'>
-                                        <Link href='/' className='d-flex column-gap-2 align-items-center'>
+                                    <div className='navbar__item d-flex align-items-center column-gap-2 '>
+                                        <Link href='/' className='d-flex c_primary fw-medium column-gap-2 align-items-center'>
                                             <TbSpeakerphone />
                                             1233-7777
                                         </Link>
-                                        <div>
+                                        <div className='c-black fw-medium'>
                                             24/7 support center
                                         </div>
                                     </div>

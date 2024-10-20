@@ -14,6 +14,7 @@ export default function StrapiImage({src,alt,width,height,className,quality, ...
         loading='lazy'
         placeholder='blur'
         blurDataURL={getStrapiUrl(src)}
+        {...props}
     />
   )
 };

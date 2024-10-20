@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 @import './core/colors';
-@import './core/classes';
 @import './core/rest';
+@import './core/classes';
 @import './core/typograpghy';
 @import './layout/navbar';
 @import './layout/footer';
@@ -11,4 +11,11 @@ html, body{
     font-optical-sizing: auto;
     font-weight: 400 !important;
     font-style: normal;
+}
+
+.page__header{
+    background-repeat: no-repeat;
+    background-size: contain, cover;
+    background-position: center center, 100%;
+    height: 80vh;
 }

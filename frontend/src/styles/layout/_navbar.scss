@@ -1,9 +1,11 @@
 .navbar__main{
-    
+    background-image: url('/assests/app-store.png');
     .navbar__top{
+        border-bottom: 1px solid $grey-1;
+        padding-bottom: 20px;
         .navbar__tools{
-           .navbar__tool{
-            position: relative;
+            .navbar__tool{
+                position: relative;
             font-size: 1rem;
             font-weight: 500;
             flex-wrap: nowrap;
@@ -37,6 +39,8 @@
         }
     }
     .navbar__bottom{
+        padding-top: 20px;
+        
         .__categories{
             position: relative;
             .dropdown__btn{
@@ -46,11 +50,13 @@
                 position: absolute;
                 top: 100%;
                 background-color: $white;
-                border: 1px solid $grey-1;
                 padding: 15px;
                 width: 80vw;
-                border-radius: 10px;
+                left: 0;
                 .dropdown__items{
+                    display: flex;
+                    gap: 15px;
+                    flex-wrap: wrap;
                     .dropdown__item{
                         align-items: center;
                         gap: 15px;
@@ -66,6 +72,24 @@
                     }
                 }
             }
+        }
+        .navbar__list__items{
+            gap: 20px;
+            .navbar__item{
+                a{
+                    font-size: 1.2rem;
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+                }
+
+            }
+        }
+        .navbar__item{
+            a.c_primary{
+                color: $primary !important;
+            }
+
         }
     }
 }
