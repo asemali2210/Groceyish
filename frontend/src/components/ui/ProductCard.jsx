@@ -6,7 +6,7 @@ export default function ProductCard({product}) {
   return (
     <div className='product__card border border-secondary p-2 rounded-2 my-1 d-flex flex-column h-100'>
         <div className='product__image d-flex align-items-center justify-content-center position-relative'>
-           <StrapiImage src={url} alt={product.name} width={product.images[0].width} height={product.images[0].height}  className="img-fluid" quality={80} layout="resposive"/>
+           <StrapiImage src={url} alt={product.name} width={product.images[0].width} height={product.images[0].height}  className="img-fluid" quality={80}/>
         </div>
         <div className="d-flex">
           <p className="product__name text-bg-success rounded-1 p-1 text-white">{product.categories[0].name}</p>

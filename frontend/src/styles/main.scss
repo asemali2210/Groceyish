@@ -15,7 +15,54 @@ html, body{
 
 .page__header{
     background-repeat: no-repeat;
-    background-size: contain, cover;
-    background-position: center center, 100%;
+    background-size: cover;
     height: 80vh;
+    display: flex;
+    .page__header__left{
+        .page__header__content{
+            p.heading{
+                color: $black;
+                font-size: 3rem;
+            }
+            p.sub_heading{
+                color: $grey-3;
+                font-size: 1.2rem;
+            }
+        }
+        .newsletter{
+            position: relative;
+            height: 40px;
+            ._icon{
+                position: absolute;
+                left: -50px;
+                padding-left: 55px;
+                font-size: 1.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: $grey-3;
+
+            }
+            input{
+                padding: 8px  10px;
+                min-width: 250px;
+                padding-left: 35px;
+                height: 100%;
+                color: $grey-3;
+                border: none;
+                &::placeholder{
+                    color: $grey-3;
+                }
+                &:focus{
+                    outline: 0;
+                }
+
+            }
+            button{
+                border: none;
+                color: $white;
+                height: 100%;
+                padding: 10px;
+            }
+        }
+    }
 }

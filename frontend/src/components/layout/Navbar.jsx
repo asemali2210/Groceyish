@@ -34,10 +34,11 @@ export default  function Navbar({data}) {
 
     }
     const styleWhenClose = {
-        y: -100,
-        opacity: 0,
+        y: '-50%',
         zIndex: -1,
+        opacity: 0,
         display: 'none'
+
     }
     
     return (
@@ -90,41 +91,44 @@ export default  function Navbar({data}) {
                     </div>
                     <div className='col-12'>
                         <div className='navbar__bottom py-3'>
-                            <div className='row align-items-center'>
+                            <motion.div 
+                                initial={styleWhenClose}
+                                animate={isOpen? styleWhenOpen : styleWhenClose}
+                                className="dropdown__items___container"
+                                transition={{ ease: "easeOut", duration: .4 }}
+                            >
+                                    <ul className='dropdown__items list-unstyled'>
+                                        {
+                                            data.categories.map(category => (
+                                                <li 
+                                                className='dropdown__item fw-medium' 
+                                                key={category.id}>
+                                                    <div>
+                                                        <StrapiImage 
+                                                            src={category.image.url}
+                                                            width={50}
+                                                            height={50}
+                                                            alt={category.name}
+                                                            className="img-fluid"
+                                                        />
+                                                    </div>
+                                                    <Link href={`/category/${category.slug}`}>
+                                                        {category.name}
+                                                    </Link>
+                                              
+                                                </li>
+
+                                            ))
+                                        }
+                                        </ul>
+                                </motion.div>
+                            <div className='row align-items-center' style={{position:'relative', zIndex: 10,background: '#fff'}}>
                                 <div className='col-md-3'>
                                     <div className='__categories d-flex column-gap-2 align-items-center'>
                                         <div className="dropdown__btn bg_primary c_wh fw-bold p-2" onClick={toggelCat}>
-                                                <TbCategory />
+                                                <TbCategory className='me-2' />
                                                 Brows All Categories
                                         </div>
-                                        <motion.div 
-                                        initial={styleWhenClose}
-                                        animate={isOpen? styleWhenOpen : styleWhenClose}
-                                        className="dropdown__items___container"
-                                        transition={{ ease: "easeOut", duration: .4 }}
-                                        >
-                                                <ul className='dropdown__items list-unstyled'>
-                                                    {
-                                                        data.categories.map(category => (
-                                                            <li 
-                                                            className='dropdown__item fw-medium rounded ' 
-                                                            key={category.id}>
-                                                                <div>
-                                                                    <StrapiImage 
-                                                                        src={category.image.url}
-                                                                        width={50}
-                                                                        height={50}
-                                                                        alt={category.name}
-                                                                        className="img-fluid"
-                                                                    />
-                                                                </div>
-                                                                {category.name}
-                                                            </li>
-
-                                                        ))
-                                                    }
-                                                </ul>
-                                        </motion.div>
                                     </div>
                                 </div>
                                 <div className='col-md-6'>

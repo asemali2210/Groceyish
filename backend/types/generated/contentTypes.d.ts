@@ -501,6 +501,7 @@ export interface ApiCategoryCategory extends Struct.CollectionTypeSchema {
     slug: Schema.Attribute.UID<'name'>;
     products: Schema.Attribute.Relation<'manyToMany', 'api::product.product'>;
     image: Schema.Attribute.Media<'images'>;
+    bgColor: Schema.Attribute.String & Schema.Attribute.DefaultTo<'#fff'>;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;

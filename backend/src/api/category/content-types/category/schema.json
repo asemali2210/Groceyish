@@ -33,6 +33,10 @@
       "allowedTypes": [
         "images"
       ]
+    },
+    "bgColor": {
+      "type": "string",
+      "default": "#fff"
     }
   }
 }

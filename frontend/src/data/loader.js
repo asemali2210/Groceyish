@@ -65,6 +65,11 @@ export async function getHomePageData() {
                                                 }
                                             }
                                         }
+                                    },
+                                    image: {
+                                        populate: {
+                                            fields: 'url'
+                                        }
                                     }
                                 }
                             },
@@ -112,7 +117,13 @@ export async function getGlobalData(){
 export async function getCategorySlug(){
     const url = new URL("/api/categories", baseUrl );
     url.search = qs.stringify({
-        populate: true
+        populate: {
+            image: {
+                populate: {
+                    fields: 'url'
+                }
+            }
+        }
     })
     return await fetchData(url.href)
 } 

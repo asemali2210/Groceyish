@@ -1,7 +1,6 @@
 import ProductCard from "./ProductCard"
 
 export default async function ProductsList({data}) {
-    console.log( data.products)
   return (
     <div className="products__list">
         <div className="container">
