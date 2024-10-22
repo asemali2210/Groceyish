@@ -1,0 +1,22 @@
+.footer__main{
+            .col__heading{
+                font-weight: 500;
+                color: $black;
+            }
+           .footer__items{
+                .footer__item{
+                    margin: 10px 0;
+                    a{
+                        color: $black;
+                        font-weight: 500;
+                    }
+                    &.__icons{
+                        ._icon{
+                            font-size: 1.2rem;
+                            color: $primary;
+                            margin-right: 5px;
+                        }
+                    }
+                }
+           }
+}

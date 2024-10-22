@@ -6,7 +6,6 @@ import { MdOutlineMail } from "react-icons/md";
 import { CiClock2 } from "react-icons/ci";
 import Link from 'next/link';
 
-
 function getIcon(iconName){
     switch(iconName) {
         case "CiLocationOn": 
@@ -33,7 +32,7 @@ export default function Footer({data}) {
     }
 
   return (
-    <footer className='footer__main'>
+    <footer className='footer__main py-5'>
         <div className='container'>
             <div className='row'>
                 <div className='col-md-4'>
@@ -43,9 +42,10 @@ export default function Footer({data}) {
                         </div>
                         <ul className='footer__items list-unstyled'>
                             {footerLinkWithIcon.map(footerLinkWithIconItem => (
-                                <li className='footer__item d-flex align-items-center' key={footerLinkWithIconItem.id}>
-                                    {getIcon(footerLinkWithIconItem.icon) }
-                                
+                                <li className='footer__item __icons d-flex align-items-center' key={footerLinkWithIconItem.id}>
+                                    <span className='_icon'>
+                                        {getIcon(footerLinkWithIconItem.icon) }
+                                    </span>
                                     <Link  href={`${footerLinkWithIconItem.url}`}>
                                         {footerLinkWithIconItem.text}
                                     </Link>
@@ -60,7 +60,7 @@ export default function Footer({data}) {
                         {
                             footerColumn.map(footerCol => (
                                 <div className='col-md-4' key={footerCol.boxHeading}>
-                                    <div>{footerCol.boxHeading}</div>
+                                    <div className='col__heading'>{footerCol.boxHeading}</div>
                                     <ul className='footer__items list-unstyled'>
                                         {
                                             footerCol.boxItem.map(boxLink => (
