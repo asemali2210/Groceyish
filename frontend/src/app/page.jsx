@@ -1,3 +1,4 @@
+import DownLoadApp from "@/components/layout/DownLoadApp";
 import Features from "@/components/layout/Features";
 import HomeHeader from "@/components/layout/HomeHeader";
 import ProductsList from "@/components/ui/ProductsList";
@@ -31,6 +32,7 @@ export default async function Home() {
   return (
     <main>
       {blocks.map(block => blockRender(block))}
+      <DownLoadApp />
     </main>
   );
 }

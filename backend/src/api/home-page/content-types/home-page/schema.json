@@ -25,7 +25,8 @@
         "layout.featrues-sections",
         "custom.categries",
         "components.products",
-        "layout.navbar"
+        "layout.navbar",
+        "custom.download-app"
       ]
     }
   }
