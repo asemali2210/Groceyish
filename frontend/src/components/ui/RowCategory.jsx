@@ -13,7 +13,7 @@ export default async function RowCategory({data}) {
                 
                  {
                     categories.map(category => (
-                        <div className='col-5 col-md-2 col-lg-2' key={category.id}>
+                        <div className='col-5 col-md-3 col-lg-2' key={category.id}>
                             <div className="category__item px-4 py-1" style={{backgroundColor: `${category.bgColor}` || '#fff'}}>
                                 <div className="category__img">
                                     <StrapiImage src={category.image.url} alt="asd"  width={200} height={200} className="img-fluid"/>

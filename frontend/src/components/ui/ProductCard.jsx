@@ -1,22 +1,27 @@
 import StrapiImage from "../custom/StrapiImage";
-
-
+import { BsFillCartPlusFill } from "react-icons/bs";
 export default function ProductCard({product}) {
   const { url } = product.images[0];
   return (
-    <div className='product__card border border-secondary p-2 rounded-2 my-1 d-flex flex-column h-100'>
+    <div className='product__card  p-4  my-1 d-flex flex-column h-100'>
         <div className='product__image d-flex align-items-center justify-content-center position-relative'>
-           <StrapiImage src={url} alt={product.name} width={product.images[0].width} height={product.images[0].height}  className="img-fluid" quality={80}/>
+           <StrapiImage 
+            src={url}
+            alt={product.name}
+             width={150} height={100}  className="img-fluid" quality={80}/>
         </div>
         <div className="d-flex">
-          <p className="product__name text-bg-success rounded-1 p-1 text-white">{product.categories[0].name}</p>
+          <p className="product__category m-0 rounded-1 p-2 py-1">{product.categories[0].name}</p>
         </div>
-        <p className="h4 product__name">{product.name}</p>
-        <div className="d-flex h4 gap-1 align-items-center">
-                <span className="h6">For: </span>
-            <p className="h6 product__name text-primary">{product.quantity}</p>
-            <span className="h6">Pay</span>
-        <p className="h4 product__name text-success">{product.price}$ </p> 
+        <p className="h5 product__name m-0">{product.name}</p>
+        <div className="product__info d-flex h4 gap-1 align-items-center">
+            <span className="h5 m-0">For: </span>
+            <p className="h5 m-0 product__quntity ">{product.quantity}</p>
+            <span className="h5 m-0">Pay</span>
+        </div>
+        <div className="d-flex aling-items-center justify-content-between column-gap-2">
+          <p className="h4 product__price">{product.price}$ </p> 
+          <button className="cart__btn"><BsFillCartPlusFill /> Add </button>
         </div>
     </div>
   )
