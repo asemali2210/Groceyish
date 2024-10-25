@@ -3,22 +3,22 @@
     height: 200px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 5px;
     .product__image{
-        height: 200px;
-        padding: 20px;
+        padding-top: 10px;
+        height: 150px;
         display: flex;
         justify-content: center;
         align-items: center;
+        margin-bottom: 20px;
     }
     .product__category{
         color: $primary ;
         background-color: $lightGreen-2;
     }
     .product__info{
-        .h6{
-
-        }
+        font-size: .9rem;
+        
     }
     .product__quntity{
         color: #f4b535;

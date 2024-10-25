@@ -63,48 +63,6 @@ export interface LayoutFeatruesSections extends Struct.ComponentSchema {
   };
 }
 
-export interface CustomFooterBox extends Struct.ComponentSchema {
-  collectionName: 'components_custom_footer_boxes';
-  info: {
-    displayName: 'footerBox';
-    description: '';
-  };
-  attributes: {
-    boxHeading: Schema.Attribute.String;
-    boxItem: Schema.Attribute.Component<'components.link', true>;
-  };
-}
-
-export interface CustomDownloadApp extends Struct.ComponentSchema {
-  collectionName: 'components_custom_download_apps';
-  info: {
-    displayName: 'downloadApp';
-    description: '';
-  };
-  attributes: {
-    heading: Schema.Attribute.String;
-    subHeading: Schema.Attribute.String;
-    googleplay: Schema.Attribute.Media<'images'>;
-    appStore: Schema.Attribute.Media<'images'>;
-    perview: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface CustomCategries extends Struct.ComponentSchema {
-  collectionName: 'components_custom_categries';
-  info: {
-    displayName: 'categries';
-    description: '';
-  };
-  attributes: {
-    haeading: Schema.Attribute.String;
-    categories: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    >;
-  };
-}
-
 export interface ComponentsProducts extends Struct.ComponentSchema {
   collectionName: 'components_components_products';
   info: {
@@ -173,6 +131,48 @@ export interface ComponentsFeatrue extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomFooterBox extends Struct.ComponentSchema {
+  collectionName: 'components_custom_footer_boxes';
+  info: {
+    displayName: 'footerBox';
+    description: '';
+  };
+  attributes: {
+    boxHeading: Schema.Attribute.String;
+    boxItem: Schema.Attribute.Component<'components.link', true>;
+  };
+}
+
+export interface CustomDownloadApp extends Struct.ComponentSchema {
+  collectionName: 'components_custom_download_apps';
+  info: {
+    displayName: 'downloadApp';
+    description: '';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
+    googleplay: Schema.Attribute.Media<'images'>;
+    appStore: Schema.Attribute.Media<'images'>;
+    perview: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface CustomCategries extends Struct.ComponentSchema {
+  collectionName: 'components_custom_categries';
+  info: {
+    displayName: 'categries';
+    description: '';
+  };
+  attributes: {
+    haeading: Schema.Attribute.String;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -180,14 +180,14 @@ declare module '@strapi/strapi' {
       'layout.hero-section': LayoutHeroSection;
       'layout.footer': LayoutFooter;
       'layout.featrues-sections': LayoutFeatruesSections;
-      'custom.footer-box': CustomFooterBox;
-      'custom.download-app': CustomDownloadApp;
-      'custom.categries': CustomCategries;
       'components.products': ComponentsProducts;
       'components.link': ComponentsLink;
       'components.link-with-icon': ComponentsLinkWithIcon;
       'components.header': ComponentsHeader;
       'components.featrue': ComponentsFeatrue;
+      'custom.footer-box': CustomFooterBox;
+      'custom.download-app': CustomDownloadApp;
+      'custom.categries': CustomCategries;
     }
   }
 }
