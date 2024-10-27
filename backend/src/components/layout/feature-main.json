@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_layout_feature_mains",
+  "info": {
+    "displayName": "FeatureMain"
+  },
+  "options": {},
+  "attributes": {
+    "feature": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.feater-main"
+    }
+  }
+}

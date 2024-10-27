@@ -567,6 +567,7 @@ export interface ApiHomePageHomePage extends Struct.SingleTypeSchema {
         'components.products',
         'layout.navbar',
         'custom.download-app',
+        'layout.feature-main',
       ]
     >;
     createdAt: Schema.Attribute.DateTime;
