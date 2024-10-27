@@ -3,26 +3,43 @@
     height: 200px;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    padding: 10px 20px;
+    gap: 7px;
     .product__image{
         padding-top: 10px;
-        height: 150px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        height: 120px;
         margin-bottom: 20px;
+        padding: 10px;
+        img{
+            object-fit: contain;            
+        }
+    }
+    .product__name{
+
     }
     .product__category{
+        font-size: .9rem !important;
         color: $primary ;
         background-color: $lightGreen-2;
     }
+    .product__name{
+        font-size: 1rem;
+        margin: 0;
+        
+    }
     .product__info{
         font-size: .9rem;
-        
+        p{
+            font-size: .9rem;
+            font-weight: 700;
+            margin: 0;
+        }
     }
     .product__quntity{
         color: #f4b535;
         padding: 3px;
+        font-size: 1rem;
+        
         
     }
     .product__price{

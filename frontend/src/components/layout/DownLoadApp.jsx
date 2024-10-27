@@ -3,18 +3,19 @@ import Link from 'next/link'
 import appStore from '@/public/assests/app-store.png';
 import gpStore from '@/public/assests/gpStore.png';
 import appWid from '@/public/assests/app-wid.png';
+import bg from '@/public/assests/hero-bg.png'
 
-export default function DownLoadApp() {
+export default function  DownLoadApp() {
   return (
-    <div className='download__app'>
+    <div className='download__app py-5 my-5' style={{backgroundImage: `url(${bg.src})`}}>
         <div className='container'>
             <div className='row align-items-md-center'>
                 <div className='col-5'>
                     <div className='download__app__left'>
-                        <div className='download__app__content'>
-                            <p>Shop Faster With <br /> Groceyish App</p>
-                            <p className='my-4'>Available on both IOS & Android</p>
-                            <div className='d-flex'>
+                        <div className='download__app__content  d-flex flex-column justify-content-center align-content-center row-gap-5'>
+                            <p className='heading'>Shop Faster With <br /> Groceyish App</p>
+                            <p className='my-4 sub_heading'>Available on both IOS & Android</p>
+                            <div className='d-flex align-items-center'>
                                 <Link href='/'>
                                     <Image src={appStore} className='img-fluid' alt="app-store"/>
                                 </Link>

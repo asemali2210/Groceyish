@@ -66,3 +66,19 @@ html, body{
         }
     }
 }
+
+.download__app{
+    background-repeat: no-repeat;
+    background-size: cover;
+    .download__app__left{
+        .heading{
+            font-size: 3rem;
+            color: $black;
+            font-weight: 700;
+            margin: 0;
+            line-height: 1.1;
+        }
+    }
+    .sub_heading{
+    }
+}
