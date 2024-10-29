@@ -1,0 +1,18 @@
+{
+  "collectionName": "components_components_special_products",
+  "info": {
+    "displayName": "specialProducts",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "products": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::product.product"
+    },
+    "heading": {
+      "type": "string"
+    }
+  }
+}

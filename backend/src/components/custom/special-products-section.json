@@ -1,0 +1,14 @@
+{
+  "collectionName": "components_custom_special_products_sections",
+  "info": {
+    "displayName": "specialProductsSection"
+  },
+  "options": {},
+  "attributes": {
+    "productList": {
+      "type": "component",
+      "repeatable": true,
+      "component": "components.special-products"
+    }
+  }
+}

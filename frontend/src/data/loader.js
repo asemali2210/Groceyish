@@ -75,6 +75,34 @@ export async function getHomePageData() {
                             },
                         }
                    },
+                   'custom.download-app': {
+                        populate: {
+                            googleplay: {
+                                fields: ["url"]
+                            },
+                            appStore: {
+                                fields: ["url"]
+                            },
+                            perview: {
+                                fields: ["url"]
+                            }
+                        }
+                   },
+                   'custom.special-products-section': {
+                        populate: {
+                            productList: {
+                                populate: {
+                                    products: {
+                                        populate: {
+                                            images: {
+                                                populate: true
+                                            },
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                   },
                    'components.products': {
                     populate: {
                         products: {
@@ -87,6 +115,7 @@ export async function getHomePageData() {
                         }
                     }
                    },
+                   
                 }
             }
         },

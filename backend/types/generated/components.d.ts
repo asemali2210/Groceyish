@@ -73,45 +73,15 @@ export interface LayoutFeatruesSections extends Struct.ComponentSchema {
   };
 }
 
-export interface CustomFooterBox extends Struct.ComponentSchema {
-  collectionName: 'components_custom_footer_boxes';
+export interface ComponentsSpecialProducts extends Struct.ComponentSchema {
+  collectionName: 'components_components_special_products';
   info: {
-    displayName: 'footerBox';
+    displayName: 'specialProducts';
     description: '';
   };
   attributes: {
-    boxHeading: Schema.Attribute.String;
-    boxItem: Schema.Attribute.Component<'components.link', true>;
-  };
-}
-
-export interface CustomDownloadApp extends Struct.ComponentSchema {
-  collectionName: 'components_custom_download_apps';
-  info: {
-    displayName: 'downloadApp';
-    description: '';
-  };
-  attributes: {
+    products: Schema.Attribute.Relation<'oneToMany', 'api::product.product'>;
     heading: Schema.Attribute.String;
-    subHeading: Schema.Attribute.String;
-    googleplay: Schema.Attribute.Media<'images'>;
-    appStore: Schema.Attribute.Media<'images'>;
-    perview: Schema.Attribute.Media<'images'>;
-  };
-}
-
-export interface CustomCategries extends Struct.ComponentSchema {
-  collectionName: 'components_custom_categries';
-  info: {
-    displayName: 'categries';
-    description: '';
-  };
-  attributes: {
-    haeading: Schema.Attribute.String;
-    categories: Schema.Attribute.Relation<
-      'oneToMany',
-      'api::category.category'
-    >;
   };
 }
 
@@ -199,6 +169,61 @@ export interface ComponentsFeaterMain extends Struct.ComponentSchema {
   };
 }
 
+export interface CustomSpecialProductsSection extends Struct.ComponentSchema {
+  collectionName: 'components_custom_special_products_sections';
+  info: {
+    displayName: 'specialProductsSection';
+  };
+  attributes: {
+    productList: Schema.Attribute.Component<
+      'components.special-products',
+      true
+    >;
+  };
+}
+
+export interface CustomFooterBox extends Struct.ComponentSchema {
+  collectionName: 'components_custom_footer_boxes';
+  info: {
+    displayName: 'footerBox';
+    description: '';
+  };
+  attributes: {
+    boxHeading: Schema.Attribute.String;
+    boxItem: Schema.Attribute.Component<'components.link', true>;
+  };
+}
+
+export interface CustomDownloadApp extends Struct.ComponentSchema {
+  collectionName: 'components_custom_download_apps';
+  info: {
+    displayName: 'downloadApp';
+    description: '';
+  };
+  attributes: {
+    heading: Schema.Attribute.String;
+    subHeading: Schema.Attribute.String;
+    googleplay: Schema.Attribute.Media<'images'>;
+    appStore: Schema.Attribute.Media<'images'>;
+    perview: Schema.Attribute.Media<'images'>;
+  };
+}
+
+export interface CustomCategries extends Struct.ComponentSchema {
+  collectionName: 'components_custom_categries';
+  info: {
+    displayName: 'categries';
+    description: '';
+  };
+  attributes: {
+    haeading: Schema.Attribute.String;
+    categories: Schema.Attribute.Relation<
+      'oneToMany',
+      'api::category.category'
+    >;
+  };
+}
+
 declare module '@strapi/strapi' {
   export module Public {
     export interface ComponentSchemas {
@@ -207,15 +232,17 @@ declare module '@strapi/strapi' {
       'layout.footer': LayoutFooter;
       'layout.feature-main': LayoutFeatureMain;
       'layout.featrues-sections': LayoutFeatruesSections;
-      'custom.footer-box': CustomFooterBox;
-      'custom.download-app': CustomDownloadApp;
-      'custom.categries': CustomCategries;
+      'components.special-products': ComponentsSpecialProducts;
       'components.products': ComponentsProducts;
       'components.link': ComponentsLink;
       'components.link-with-icon': ComponentsLinkWithIcon;
       'components.header': ComponentsHeader;
       'components.featrue': ComponentsFeatrue;
       'components.feater-main': ComponentsFeaterMain;
+      'custom.special-products-section': CustomSpecialProductsSection;
+      'custom.footer-box': CustomFooterBox;
+      'custom.download-app': CustomDownloadApp;
+      'custom.categries': CustomCategries;
     }
   }
 }

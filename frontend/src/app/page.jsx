@@ -1,6 +1,7 @@
 import DownLoadApp from "@/components/layout/DownLoadApp";
 import Features from "@/components/layout/Features";
 import HomeHeader from "@/components/layout/HomeHeader";
+import SpecialProducts from "@/components/layout/SpecialProducts";
 import ProductsList from "@/components/ui/ProductsList";
 import RowCategory from "@/components/ui/RowCategory";
 import { getHomePageData } from "@/data/loader";
@@ -17,6 +18,10 @@ function blockRender(block){
       return <RowCategory key={block.id} data={block}/>
     case 'components.products': 
       return <ProductsList key={block.id} data={block}/>
+    case 'custom.download-app': 
+      return <DownLoadApp key={block.id} data={block}/>
+    case 'custom.special-products-section': 
+      return <SpecialProducts key={block.id} data={block}/>
     default:
       return null
   
@@ -32,7 +37,6 @@ export default async function Home() {
   return (
     <main>
       {blocks.map(block => blockRender(block))}
-      <DownLoadApp />
     </main>
   );
 }

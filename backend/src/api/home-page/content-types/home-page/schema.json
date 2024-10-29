@@ -27,7 +27,8 @@
         "components.products",
         "layout.navbar",
         "custom.download-app",
-        "layout.feature-main"
+        "layout.feature-main",
+        "custom.special-products-section"
       ]
     }
   }
