@@ -53,6 +53,9 @@ export async function getHomePageData() {
                             }
                         },
                    },
+                   'layout.feature-main': {
+                        populate: true
+                   },
                    'custom.categries': {
                         populate: {
                             categories: {

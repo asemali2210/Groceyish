@@ -1,4 +1,5 @@
 import DownLoadApp from "@/components/layout/DownLoadApp";
+import FeatureMainSection from "@/components/layout/FeatureMainSection";
 import Features from "@/components/layout/Features";
 import HomeHeader from "@/components/layout/HomeHeader";
 import SpecialProducts from "@/components/layout/SpecialProducts";
@@ -22,6 +23,8 @@ function blockRender(block){
       return <DownLoadApp key={block.id} data={block}/>
     case 'custom.special-products-section': 
       return <SpecialProducts key={block.id} data={block}/>
+    case 'layout.feature-main': 
+      return <FeatureMainSection key={block.id} data={block}/>
     default:
       return null
   

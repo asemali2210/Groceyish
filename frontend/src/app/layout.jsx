@@ -5,7 +5,6 @@ import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
 
 import { getGlobalData } from "@/data/loader";
-import { getCategorySlug } from "@/data/loader";
 
 export const metadata = {
   title: "groceyish",

@@ -10,7 +10,6 @@ export default function SpecialProducts({data}) {
                 {
                     productList.map(productsCol => (
                         <div className="col-6 col-md-3" key={productsCol.heading}>
-
                             <ProductsColumn columnHeading={productsCol.heading} products={productsCol.products} />
                         </div>
                     ))
