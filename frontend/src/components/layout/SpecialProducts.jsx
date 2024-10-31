@@ -1,7 +1,6 @@
 import ProductsColumn from "../custom/ProductsColumn"
 
 export default function SpecialProducts({data}) {
-    console.log(data.productList)
     const {productList} = data
   return (
     <div className="special__products">
