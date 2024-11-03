@@ -1,3 +1,4 @@
+import Sale from "@/components/custom/Sale";
 import DownLoadApp from "@/components/layout/DownLoadApp";
 import FeatureMainSection from "@/components/layout/FeatureMainSection";
 import Features from "@/components/layout/Features";
@@ -41,6 +42,7 @@ export default async function Home() {
     <main>
       {blocks.map(block => blockRender(block))}
       <FeatureMainSection />
+      <Sale />
     </main>
   );
 }
