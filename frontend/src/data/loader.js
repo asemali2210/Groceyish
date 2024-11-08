@@ -55,7 +55,17 @@ export async function getHomePageData() {
                    },
                    'layout.feature-main': {
                         populate: {
-                            feature: true
+                            feature: {
+                                populate: {
+                                    link: true,
+                                    bgImg: {
+                                        populate: true
+                                    },
+                                    rightImg: {
+                                        populate: true
+                                    }
+                                }
+                            }
                         }
                    },
                    'custom.categries': {

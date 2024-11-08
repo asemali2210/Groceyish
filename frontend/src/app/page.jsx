@@ -41,8 +41,6 @@ export default async function Home() {
   return (
     <main>
       {blocks.map(block => blockRender(block))}
-      <FeatureMainSection />
-      <Sale />
     </main>
   );
 }
